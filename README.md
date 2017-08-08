@@ -1,4 +1,4 @@
-# Redux API Middleware
+# Redux API Middleware [![npm](https://img.shields.io/npm/v/@edy/redux-api-middleware.svg?maxAge=2592000&style=flat-square)](https://www.npmjs.com/package/@edy/redux-api-middleware) [![Build Status](https://travis-ci.org/edy/redux-api-middleware.svg?branch=master)](https://travis-ci.org/edy/redux-api-middleware)
 
 A simple middleware based on the one from the [Redux Docs](http://redux.js.org/docs/recipes/ReducingBoilerplate.html).
 
