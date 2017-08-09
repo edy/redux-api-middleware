@@ -63,3 +63,33 @@ Then somewhere in your code:
 ```js
 dispatch(setToken(1234567890));
 ```
+
+Reducer:
+```js
+switch (action.type) {
+	case START:
+		return {
+			...state,
+			tokenSentToServer: false,
+			tokenIsUpdating: true
+		};
+
+	case SUCCESS:
+		return {
+			...state,
+			token: action.payload.token,
+			tokenSentToServer: true,
+			tokenDidInvalidate: false,
+			tokenIsUpdating: false
+		};
+
+	case ERROR:
+		return {
+			...state,
+			tokenSentToServer: false,
+			tokenIsUpdating: false
+		};
+	default:
+		return state;
+}
+```
