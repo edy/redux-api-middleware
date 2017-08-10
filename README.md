@@ -21,7 +21,52 @@ const store = createStore(
 );
 ```
 
-Sample Action:
+### Example 1 (easy)
+Action:
+```js
+export function loadUsers () {
+	return {
+		types: [START, SUCCESS, ERROR],
+		callAPI: () => fetch('/users'),
+	};
+};
+```
+
+Then somewhere in your component:
+```js
+dispatch(loadUsers());
+```
+
+Reducer:
+```js
+switch (action.type) {
+	case START:
+		return {
+			...state,
+			isLoading: true
+		};
+
+	case SUCCESS:
+		return {
+			...state,
+			users: action.response,
+			isLoading: false
+		};
+
+	case ERROR:
+		return {
+			...state,
+			isLoading: false,
+			error: action.error
+		};
+	default:
+		return state;
+}
+```
+
+
+### Example 2 (not so easy)
+Action:
 ```js
 export function setToken (newToken) {
 	return {
@@ -59,7 +104,7 @@ export function setToken (newToken) {
 };
 ```
 
-Then somewhere in your code:
+Then somewhere in your component:
 ```js
 dispatch(setToken(1234567890));
 ```
